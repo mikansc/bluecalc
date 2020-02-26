@@ -1,14 +1,23 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const {
+  getLandingPage
+} = require('../controllers/');
+const { asyncErrorHandler } = require('../middleware/');
+
 
 /* GET Landing page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Calculadora Blue Line' });
-});
+router.get('/', getLandingPage);
 
 /* POST /login */
 router.post('/login', function (req, res, next) {
   res.send('POST /login');
+});
+
+/* POST /logout */
+router.get('/logout', (req, res, next) => {
+  req.logout();
+  res.redirect('/');
 });
 
 /*GET /register */
@@ -20,26 +29,5 @@ router.get('/register', function (req, res, next) {
 router.post('/register', function (req, res, next) {
   res.send('POST /register');
 });
-
-// /* GET home/landing  page. */
-// router.get("/", asyncErrorHandler(landingPage));
-
-// /* GET /register */
-// router.get("/register", getRegister);
-
-// /* POST /register */
-// router.post("/register", upload.single('image'), asyncErrorHandler(postRegister));
-
-// /* GET /login */
-// router.get("/login", getLogin);
-
-// /* POST /login */
-// router.post("/login", asyncErrorHandler(postLogin));
-
-// /* GET /logout */
-// router.get("/logout", getLogout);
-
-
-
 
 module.exports = router;

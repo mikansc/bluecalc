@@ -1,30 +1,28 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const { asyncErrorHandler } = require('../middleware');
+const {
+    getProducts,
+    getNewProduct,
+    postNewProduct,
+    updateProduct,
+    deleteProduct
+} = require('../controllers/products');
 
 /* GET /products (index) */
-router.get('/', function (req, res, next) {
-    res.send('GET products/');
-});
+router.get('/', asyncErrorHandler(getProducts));
 
 /* GET /products/new (new) */
-router.get('/new', function (req, res, next) {
-    res.send('GET products/new');
-});
+router.get('/new', getNewProduct);
 
 /* POST /products (create) */
-router.post('/', function (req, res, next) {
-    res.send('POST products/');
-});
+router.post('/', asyncErrorHandler(postNewProduct));
 
 /* PUT /products/:prod_id (update) */
-router.put('/:prod_id', function (req, res, next) {
-    res.send('PUT products/:prod_id');
-});
+router.put('/:prod_id', asyncErrorHandler(updateProduct));
 
 /* DELETE /products/:prod_id (destroy)*/
-router.delete('/:prod_id', function (req, res, next) {
-    res.send('DELETE products/:prod_id');
-});
+router.delete('/:prod_id', asyncErrorHandler(deleteProduct));
 
 
 module.exports = router;
