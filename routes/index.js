@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const {
-  getLandingPage
+  getLandingPage,
+  getDashboard
 } = require('../controllers/');
 const { asyncErrorHandler } = require('../middleware/');
 
@@ -22,12 +23,15 @@ router.get('/logout', (req, res, next) => {
 
 /*GET /register */
 router.get('/register', function (req, res, next) {
-  res.send('GET /register');
+  res.render('./users/register');
 });
 
 /*POST /register */
 router.post('/register', function (req, res, next) {
   res.send('POST /register');
 });
+
+/*GET /dashboard */
+router.get('/dashboard', asyncErrorHandler(getDashboard));
 
 module.exports = router;

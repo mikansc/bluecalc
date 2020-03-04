@@ -6,6 +6,8 @@ const UserSchema = new Schema({
     name: String,
     username: { type: String, unique: true, require: true },
     email: { type: String, unique: true, require: true },
+    salary: Number,
+    markup: Number,
     resetPasswordToken: String,
     resetPasswordExpires: Date
 });

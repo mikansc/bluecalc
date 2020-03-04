@@ -5,6 +5,10 @@ module.exports = {
     getLandingPage(req, res, next) {
         res.render('index');
     },
+
+    getDashboard(req, res, next) {
+        res.render('dashboard');
+    }
     // // POST executa login
     // async postLogin(req, res, next) {
     //     const { username, password } = req.body;

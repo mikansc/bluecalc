@@ -19,6 +19,7 @@ const methodOverride = require("method-override");
 const index = require('./routes/index');
 const materials = require('./routes/materials');
 const products = require('./routes/products');
+const users = require('./routes/users');
 
 const app = express();
 
@@ -80,8 +81,9 @@ app.use(function (req, res, next) {
 
 // Mount routes
 app.use('/', index);
-app.use('/materials', materials);
-app.use('/products', products);
+app.use('/dashboard/materials', materials);
+app.use('/dashboard/products', products);
+app.use('/u', users);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
