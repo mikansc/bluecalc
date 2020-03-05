@@ -1,4 +1,6 @@
 const User = require('../models/User');
+const Product = require('../models/Product');
+const Material = require('../models/Material');
 
 module.exports = {
     // GET página inicial (landing)
@@ -6,29 +8,9 @@ module.exports = {
         res.render('index');
     },
 
+    // GET página inicial logado (dashboard)
     getDashboard(req, res, next) {
         res.render('dashboard');
     }
-    // // POST executa login
-    // async postLogin(req, res, next) {
-    //     const { username, password } = req.body;
-    //     const { user, error } = await User.authenticate()(username, password);
-    //     if (!user && error) return next(error);
-    //     req.login(user, err => {
-    //         if (err) return next(err);
-    //         // req.session.success = `Welcome back, ${username}!`;
-    //         const redirectUrl = req.session.redirectTo || "/";
-    //         delete req.session.redirectTo;
-    //         res.redirect(redirectUrl);
-    //     });
-    // },
-    // GET página de cadastro
-    // getRegister(req, res, next) {
-
-    // },
-    //POST executa cadastro
-    // async postRegister(req, res, next) {
-
-    // }
 
 };

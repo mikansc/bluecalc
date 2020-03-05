@@ -1,4 +1,4 @@
-const Materials = require("../models/Material");
+const Material = require("../models/Material");
 
 
 module.exports = {
