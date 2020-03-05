@@ -33,13 +33,25 @@ module.exports = {
             });
         };
     },
-    async postNewProduct(req, res, next) {
-        // post instructions
+    async getProfile(req, res, next) {
+        userId = req.params.user_id;
+        res.render('./users/profile', { userId });
     },
-    async updateProduct(req, res, next) {
-        // update instructions
+
+    getLogin(req, res, next) {
+        res.render('./users');
     },
-    async deleteProduct(req, res, next) {
-        // delete instructions
+
+    async postLogin(req, res, next) {
+        const { username, password } = req.body;
+        const { user, error } = await User.authenticate()(username, password);
+        if (!user && error) return next(error);
+        req.login(user, err => {
+            if (err) return next(err);
+            req.session.success = `Bem vindo de volta, ${user.name}!`;
+            const redirectUrl = req.session.redirectTo || "/dashboard";
+            delete req.session.redirectTo;
+            res.redirect(redirectUrl);
+        });
     }
 };

@@ -4,13 +4,16 @@ const {
   getLandingPage,
   getDashboard
 } = require('../controllers/');
-const { asyncErrorHandler } = require('../middleware/');
+const {
+  asyncErrorHandler,
+  isLoggedIn
+} = require('../middleware/');
 
 
 /* GET Landing page. */
 router.get('/', getLandingPage);
 
 /*GET /dashboard */
-router.get('/dashboard', asyncErrorHandler(getDashboard));
+router.get('/dashboard', isLoggedIn, asyncErrorHandler(getDashboard));
 
 module.exports = router;
