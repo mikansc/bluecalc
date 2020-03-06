@@ -69,7 +69,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // set local variables middleware
 app.use(function (req, res, next) {
-  // res.locals.currentUser = req.user;
+  res.locals.currentUser = req.user;
   res.locals.title = "Calculadora Blue Line";
   res.locals.success = req.session.success || "";
   delete req.session.success;

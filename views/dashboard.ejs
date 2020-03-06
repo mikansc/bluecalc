@@ -1,4 +1,48 @@
 <% layout('layouts/boilerplate') %>
 
 
-<h1>Dashboard</h1>
+<div class="container" style="height: 90vh;">
+    <div class="mt-5">
+        <div class="btn-group" role="group">
+            <a class="btn btn-light" href="/dashboard/materials">Nova matéria prima</a>
+            <a class="btn btn-light" href="/dashboard/products">Novo produto</a>
+        </div>
+
+        <table class="table table-striped mt-5 table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Opões</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>
+                        <ol>
+                            <li><i class="fas fa-pencil-alt"></i></li>
+                            <li><i class="fas fa-trash"></i></li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
