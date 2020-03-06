@@ -1,11 +1,13 @@
 <% layout('layouts/boilerplate') %>
 
 
-<div class="container" style="height: 90vh;">
-    <div class="mt-5">
-        <div class="btn-group" role="group">
-            <a class="btn btn-light" href="/dashboard/materials">Nova matéria prima</a>
-            <a class="btn btn-light" href="/dashboard/products">Novo produto</a>
+<div class="container vh-75">
+    <div class="mt-5 clearfix">
+        <h2>Painel administrativo</h2>
+        <p class="lead">Edite os produtos criados usando os ícones a direita.</p>
+        <div class="btn-group float-right my-4" role="group">
+            <a class="btn btn-info" href="/dashboard/materials/new">Nova matéria prima</a>
+            <a class="btn btn-info" href="/dashboard/products">Novo produto</a>
         </div>
 
         <table class="table table-striped mt-5 table-hover">
@@ -14,7 +16,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Produto</th>
                     <th scope="col">Valor</th>
-                    <th scope="col">Opões</th>
+                    <th scope="col"><i class="fas fa-list-ul"></i></th>
                 </tr>
             </thead>
             <tbody>
@@ -23,10 +25,10 @@
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>
-                        <ol>
-                            <li><i class="fas fa-pencil-alt"></i></li>
-                            <li><i class="fas fa-trash"></i></li>
-                        </ol>
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a href="" class=""><i class="fas fa-pencil-alt"></i></a></li>
+                            <li class="list-inline-item"><a href="" class=""><i class="fas fa-trash"></i></a></li>
+                        </ul>
                     </td>
                 </tr>
                 <tr>

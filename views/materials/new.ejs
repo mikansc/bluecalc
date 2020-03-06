@@ -1,3 +1,146 @@
 <% layout('layouts/boilerplate') %>
 
-<h1>Materials new</h1>
+
+<div class="container vh-75">
+    <h2 class="my-4">Nova matéria prima</h2>
+    <form action="">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="name">Nome da matéria prima: </label>
+                    <input class="form-control" type="text" name="name" id="name">
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label for="buyUnit">Unidade de compra: </label>
+                    <select class="form-control" type="text" name="buyUnit" id="buyUnit">
+                        <option value="meter">Metro (M)</option>
+                        <option value="unity">Peça (UN)</option>
+                        <option value="kilogram">Peso (Kg)</option>
+                        <option value="liter">Litro (L)</option>
+                    </select>
+                    <small class="form-text text-muted">Selecione de que forma a matéria prima é vendida</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group border p-3">
+            <h5>Compra por metro</h5>
+            <p>Informe o tamanho da peça (em metros): </p>
+            <div class="row">
+                <div class="col">
+                    <label for="lenght">Comprimento: </label>
+                    <input class="form-control" type="number" name="lenght" id="lenght" min="0.01" value="1.00"
+                        step="0.01">
+                </div>
+                <div class="col">
+                    <label for="lenght">Largura padrão: </label>
+                    <input class="form-control" type="number" name="lenght" id="lenght" value="1.40" step="0.01">
+                </div>
+            </div>
+            <small class="form-text text-muted">
+                Use vírgula para indicar os centímetros. Ex.: 1 metro e 40 centímetros = 1,40.
+            </small>
+        </div>
+
+        <div class="form-group border p-3">
+            <h5>Compra por unidade</h5>
+            <p>Informe o tamanho da peça (em metros):</p>
+            <div class="row">
+                <div class="col">
+                    <label for="lenght">Comprimento: </label>
+                    <input class="form-control" type="number" name="lenght" id="lenght" min="0.01" value="0.50"
+                        step="0.1">
+                </div>
+                <div class="col">
+                    <label for="lenght">Largura: </label>
+                    <input class="form-control" type="number" name="lenght" id="lenght" value="0.50" step="0.1">
+                </div>
+            </div>
+            <small class="form-text text-muted">
+                Use vírgula para indicar os centímetros. Ex.: 50 centímetros = 0,50.
+            </small>
+        </div>
+
+        <div class="form-group border p-3">
+            <h5>Compra por peso</h5>
+            <p>Informe o peso da peça (em quilos):</p>
+            <div class="row">
+                <div class="col">
+                    <label for="kilogram">Peso: </label>
+                    <input class="form-control" type="number" name="kilogram" id="kilogram" min="0.01" value="1.00"
+                        step="0.1">
+                </div>
+            </div>
+            <small class="form-text text-muted">
+                Use vírgula para indicar o valor em gramas. Ex.: 250 gramas = 0,250 ou 0,25.
+            </small>
+        </div>
+
+        <div class="form-group border p-3">
+            <h5>Compra por litro</h5>
+            <p>Informe a quantidade (em litros):</p>
+            <div class="row">
+                <div class="col">
+                    <label for="liters">Quantidade: </label>
+                    <input class="form-control" type="number" name="liters" id="liters" min="0.01" value="1.00"
+                        step="0.1">
+                </div>
+            </div>
+            <small class="form-text text-muted">
+                Use vírgula para indicar o valor em mililitros (ml). Ex.: 100 ml = 0,100 ou 0,1.
+            </small>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="quantity">Quantidade comprada: </label>
+                    <input class="form-control" type="number" name="quantity" id="quantity" min="0.01" value="1"
+                        step="1">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="quantity">Quantidade comprada: </label>
+                    <input class="form-control" type="number" name="quantity" id="quantity" min="0.01" value="1"
+                        step="1">
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary">Cadastrar</button>
+
+    </form>
+    <!-- 
+    <form>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Example select</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Example multiple select</label>
+            <select multiple class="form-control" id="exampleFormControlSelect2">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Example textarea</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+    </form> -->
+</div>

@@ -1,3 +1,51 @@
 <% layout('layouts/boilerplate') %>
 
-<h1>Materials index</h1>
+
+<div class="container vh-75">
+    <div class="mt-5 clearfix">
+        <h2>Lista de maréria prima</h2>
+        <p class="lead">Cadastro das matérias primas utilizadas nos produtos</p>
+
+        <div class="my-4 float-right">
+            <a class="btn btn-info" href="/dashboard/materials/new">Nova matéria prima</a>
+        </div>
+        <table class="table table-striped mt-5 table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col"><i class="fas fa-list-ul"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a href="" class=""><i class="fas fa-pencil-alt"></i></a></li>
+                            <li class="list-inline-item"><a href="" class=""><i class="fas fa-trash"></i></a></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
