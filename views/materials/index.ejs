@@ -19,33 +19,23 @@
                 </tr>
             </thead>
             <tbody>
+                <% data.forEach(function (item, i) {%>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
+                    <th scope="row"><%= i+1 %></th>
+                    <td><%= item.name %></td>
+                    <td>R$ <%= item.price %></td>
                     <td>
                         <ul class="list-inline">
-                            <li class="list-inline-item"><a href="" class=""><i class="fas fa-pencil-alt"></i></a></li>
+                            <li class="list-inline-item"><a href="/dashboard/materials/<%= item._id %>/edit" class=""><i
+                                        class="fas fa-pencil-alt"></i></a></li>
                             <li class="list-inline-item"><a href="" class=""><i class="fas fa-trash"></i></a></li>
                         </ul>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                <%});%>
+
             </tbody>
         </table>
-
-
     </div>
 
 </div>

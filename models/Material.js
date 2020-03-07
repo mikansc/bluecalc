@@ -8,13 +8,15 @@ const MaterialSchema = new Schema({
     size: {
         width: Number,
         heigth: Number,
+        defWidth: Number,
         lenght: Number,
-        weight: Number
+        weight: Number,
+        liters: Number
     },
     quantity: Number,
     price: Number,
     unityPrice: Number,
-    lastUpdate: Date
+    lastUpdate: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model("Material", MaterialSchema);
