@@ -10,5 +10,4 @@ module.exports = {
         req.session.redirectTo = req.originalUrl;
         res.redirect("/");
     }
-
 };

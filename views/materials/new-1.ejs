@@ -1,0 +1,195 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container vh-75">
+  <h2 class="my-4">Nova matéria prima</h2>
+  <form action="/dashboard/materials" method="POST">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="name">Nome da matéria prima: </label>
+          <input
+            class="form-control"
+            type="text"
+            name="name"
+            id="name"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="buyUnit">Unidade de compra: </label>
+          <select
+            onchange="toggleBox()"
+            class="form-control"
+            type="text"
+            name="buyUnit"
+            id="buyUnit"
+          >
+            <option value="meter">Metro (M)</option>
+            <option value="unity" selected>Peça (UN)</option>
+            <option value="kilogram">Peso (Kg)</option>
+            <option value="liter">Litro (L)</option>
+          </select>
+          <small class="form-text text-muted"
+            >Selecione de que forma a matéria prima é vendida</small
+          >
+        </div>
+      </div>
+    </div>
+    <div id="boxes">
+      <!-- Compra em metros ------------------------------------------------------------------- -->
+      <div class="form-group border p-3 d-none" id="meter">
+        <h5>Compra por metro</h5>
+        <p>Informe o tamanho da peça (em metros):</p>
+        <div class="row">
+          <div class="col">
+            <label for="meterLenght">Comprimento: </label>
+            <input
+              class="form-control"
+              type="number"
+              name="size[length]"
+              id="meterLenght"
+              value="0"
+              step="0.01"
+            />
+          </div>
+          <div class="col">
+            <label for="meterHeigth">Largura padrão: </label>
+            <input
+              class="form-control"
+              type="number"
+              name="size[defWidth]"
+              id="meterHeigth"
+              value="0"
+              step="0.01"
+            />
+          </div>
+        </div>
+        <small class="form-text text-muted">
+          Use vírgula para indicar os centímetros. Ex.: 1 metro e 40 centímetros
+          = 1,40.
+        </small>
+      </div>
+
+      <!-- Compra em unidade ------------------------------------------------------------------- -->
+      <div class="form-group border p-3" id="unity">
+        <h5>Compra por unidade</h5>
+        <p>Informe o tamanho da peça (em metros):</p>
+        <div class="row">
+          <div class="col">
+            <label for="unityWidth">Comprimento: </label>
+            <input
+              class="form-control"
+              type="number"
+              name="size[width]"
+              id="unityWidth"
+              value="0"
+              step="0.01"
+            />
+          </div>
+          <div class="col">
+            <label for="unityHeigth">Largura: </label>
+            <input
+              class="form-control"
+              type="number"
+              name="size[height]"
+              id="unityHeigth"
+              value="0"
+              step="0.01"
+            />
+          </div>
+        </div>
+        <small class="form-text text-muted">
+          Use vírgula para indicar os centímetros. Ex.: 50 centímetros = 0,50.
+        </small>
+      </div>
+
+      <!-- Compra em peso ------------------------------------------------------------------- -->
+      <div class="form-group border p-3 d-none" id="kilogram">
+        <h5>Compra por peso</h5>
+        <p>Informe o peso da peça (em quilos):</p>
+        <div class="row">
+          <div class="col-6">
+            <label for="kilogram">Peso: </label>
+            <input
+              class="form-control"
+              type="number"
+              name="size[weight]"
+              id="kilogram"
+              value="0"
+              step="0.01"
+            />
+          </div>
+        </div>
+        <small class="form-text text-muted">
+          Use vírgula para indicar o valor em gramas. Ex.: 250 gramas = 0,250 ou
+          0,25.
+        </small>
+      </div>
+
+      <!-- Compra em litros ------------------------------------------------------------------- -->
+      <div class="form-group border p-3 d-none" id="liter">
+        <h5>Compra por litro</h5>
+        <p>Informe a quantidade (em litros):</p>
+        <div class="row">
+          <div class="col-6">
+            <label for="liters">Quantidade: </label>
+            <input
+              class="form-control"
+              type="number"
+              name="size[liters]"
+              id="liters"
+              value="0"
+              step="0.01"
+            />
+          </div>
+        </div>
+        <small class="form-text text-muted">
+          Use vírgula para indicar o valor em mililitros (ml). Ex.: 100 ml =
+          0,100 ou 0,1.
+        </small>
+      </div>
+      <!-- FINAL DO FORMULÁRIO ----------------------------------------------------------- -->
+    </div>
+
+    <div class="row">
+      <!-- <div class="col">
+                <div class="form-group">
+                    <label for="quantity">Quantidade comprada: </label>
+                    <input class="form-control" type="number" name="quantity" id="quantity" value="0" step="0.01">
+                </div>
+            </div> -->
+      <div class="col-3">
+        <div class="form-group">
+          <label for="price">Valor unitário: </label>
+          <input
+            class="form-control"
+            type="number"
+            name="price"
+            id="price"
+            value="0"
+            step="0.01"
+            required
+          />
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-success">Cadastrar</button>
+  </form>
+</div>
+
+<script>
+  function toggleBox() {
+    let selected = document.getElementById('buyUnit').value;
+    let nodes = document.getElementById('boxes').children;
+    for (let i = 0; i < nodes.length; i++) {
+      if (nodes[i].id === selected) {
+        nodes[i].classList.remove('d-none');
+      } else {
+        nodes[i].classList.add('d-none');
+      }
+    }
+  }
+</script>

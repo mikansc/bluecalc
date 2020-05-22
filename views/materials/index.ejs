@@ -1,41 +1,75 @@
 <% layout('layouts/boilerplate') %>
 
-
 <div class="container vh-75">
-    <div class="mt-5 clearfix">
-        <h2>Lista de maréria prima</h2>
-        <p class="lead">Cadastro das matérias primas utilizadas nos produtos</p>
+  <div class="mt-5 clearfix">
+    <h2>Lista de maréria prima</h2>
+    <p class="lead">Cadastro das matérias primas utilizadas nos produtos</p>
 
-        <div class="my-4 float-right">
-            <a class="btn btn-info" href="/dashboard/materials/new">Nova matéria prima</a>
+    <div class="my-4 float-right">
+      <div class="dropdown">
+        <a
+          class="btn btn-info dropdown-toggle"
+          href="#"
+          id="dropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          >Nova matéria prima</a
+        >
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/dashboard/materials/unity/new"
+            >Produto unitário</a
+          >
+          <a class="dropdown-item" href="/dashboard/materials/square/new"
+            >Produto por pedaço</a
+          >
+          <a class="dropdown-item" href="/dashboard/materials/meter/new"
+            >Produto por metro</a
+          >
+          <a class="dropdown-item" href="/dashboard/materials/weight/new"
+            >Produto por peso</a
+          >
         </div>
-        <table class="table table-striped mt-5 table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Produto</th>
-                    <th scope="col">Valor</th>
-                    <th scope="col"><i class="fas fa-list-ul"></i></th>
-                </tr>
-            </thead>
-            <tbody>
-                <% data.forEach(function (item, i) {%>
-                <tr>
-                    <th scope="row"><%= i+1 %></th>
-                    <td><%= item.name %></td>
-                    <td>R$ <%= item.price %></td>
-                    <td>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="/dashboard/materials/<%= item._id %>/edit" class=""><i
-                                        class="fas fa-pencil-alt"></i></a></li>
-                            <li class="list-inline-item"><a href="" class=""><i class="fas fa-trash"></i></a></li>
-                        </ul>
-                    </td>
-                </tr>
-                <%});%>
-
-            </tbody>
-        </table>
+      </div>
     </div>
-
+    <table class="table table-striped mt-5 table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Produto</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Valor</th>
+          <th scope="col"><i class="fas fa-list-ul"></i></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach(function (item, i) {%>
+        <tr>
+          <th scope="row"><%= i+1 %></th>
+          <td><%= item.name %></td>
+          <td><%= item.buyUnity %></td>
+          <!-- <td>Unitário</td> -->
+          <td>R$ <%= item.price %></td>
+          <td>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="/dashboard/materials/<%= item._id %>/edit" class=""
+                  ><i class="fas fa-pencil-alt"></i
+                ></a>
+              </li>
+              <li class="list-inline-item">
+                <form
+                  action="/dashboard/materials/<%= item._id %>?_method=DELETE"
+                  method="POST"
+                >
+                  <button><i class="fas fa-trash"></i></button>
+                </form>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <%});%>
+      </tbody>
+    </table>
+  </div>
 </div>

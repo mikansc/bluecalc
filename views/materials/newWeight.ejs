@@ -1,0 +1,81 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container vh-75">
+  <h2 class="my-4">Nova matéria prima - Peso</h2>
+  <form action="/dashboard/materials" method="POST">
+    <div class="row">
+      <div class="col-4">
+        <div class="form-group">
+          <label for="name">Nome da matéria prima: </label>
+          <input
+            class="form-control"
+            type="text"
+            name="name"
+            id="name"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="buyUnit">Unidade de compra: </label>
+          <input
+            class="form-control"
+            readonly
+            type="text"
+            name="buyUnit"
+            id="buyUnit"
+            value="Quilograma"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group border p-3">
+          <h5>Compra por metro</h5>
+          <p>Informe o peso do material (em gramas):</p>
+          <div class="row">
+            <div class="col-6">
+              <label for="meterLenght">Peso: </label>
+              <input
+                class="form-control"
+                type="number"
+                name="size[weight]"
+                id="meterLenght"
+                value="0"
+                step="0.01"
+              />
+              <small class="form-text text-muted">
+                Exemplo: <br />
+                1 kg => 1000 gramas. <br />
+                250 gramas => 0,250kg * 1000 = 250 gramas.
+              </small>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="price">Valor total do produto: </label>
+                <input
+                  class="form-control"
+                  type="number"
+                  name="price"
+                  id="price"
+                  value="0"
+                  step="0.01"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FINAL DO FORMULÁRIO ----------------------------------------------------------- -->
+    <button class="btn btn-success">Cadastrar</button>
+    <a class="btn btn-warning" href="/dashboard/materials">Cancelar</a>
+  </form>
+</div>
